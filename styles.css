@@ -1,6 +1,8 @@
 body {
     background-color: #f5efdf;
-    font-family: Roboto, sans-serif;
+    font-family: "Noto Serif Telugu", serif;
+    font-weight: 400;
+    font-style: normal;
     max-width: 960px;
     margin: 0 auto;
 }
