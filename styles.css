@@ -1,6 +1,8 @@
 body {
     background-color: #f5efdf;
     font-family: Roboto, sans-serif;
+    max-width: 960px;
+    margin: 0 auto;
 }
 
 h2 {
