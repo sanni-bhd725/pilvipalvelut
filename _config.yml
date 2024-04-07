@@ -1,3 +1,5 @@
 title: Jekyll:iä käyttävä sivusto
 description: Tervetuloa sivustolle!
-theme: jekyll-theme-online-cv
+remote_theme: pages-themes/minimal@v0.2.0
+plugins:
+- jekyll-remote-theme
