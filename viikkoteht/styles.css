@@ -15,3 +15,9 @@ h2 {
     max-width: 960px;
     margin: 0 auto;
 }
+
+.btn {
+  text-decoration: none;
+  padding: 0.5rem;
+  border: 1px solid #333333;
+}
