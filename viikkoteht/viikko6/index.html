@@ -9,16 +9,11 @@
   <div id="matomoData"></div>
 
   <script>
-    fetch('https://pilvipalvelut-matomo.rahtiapp.fi/index.php?module=API&method=VisitsSummary.get&idSite=19&period=day&date=last30&format=json&token_auth=913021d386d2651bbd7e26d104f3e78c')
-      .then(response => response.json())
+    fetch('https://pilvipalvelut-matomo.rahtiapp.fi/index.php?module=API&method=VisitsSummary.get&idSite=19&period=day&date=last30&format=json&token_auth=913021d386d2651bbd7e26d104f3e78c', { mode: 'no-cors' })
+      .then(response => response.text())
       .then(data => {
         const matomoDiv = document.getElementById('matomoData');
-        for (const key in data) {
-          const value = data[key];
-          const p = document.createElement('p');
-          p.textContent = `${key}: ${value}`;
-          matomoDiv.appendChild(p);
-        }
+        matomoDiv.textContent = data;
       })
       .catch(error => console.error('Error fetching data:', error));
   </script>
