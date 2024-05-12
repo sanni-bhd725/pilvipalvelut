@@ -16,21 +16,16 @@
   <title>REST API</title>
 </head>
 <body>
-  
   <h2>Dataa viimeisen 30 päivän ajalta</h2>
-  
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    const axios = require('axios');
-    let data = '';
-
     let config = {
       method: 'get',
       maxBodyLength: Infinity,
       url: 'https://pilvipalvelut-matomo.rahtiapp.fi/index.php?module=API&method=VisitsSummary.get&idSite=19&period=day&date=last30&format=json&token_auth=913021d386d2651bbd7e26d104f3e78c',
       headers: {
         'Cookie': 'c0bf7801475050c6d87c4115d5dc1fb1=faf5cc32b8daf7439c43976e87f172ec'
-      },
-      data: data
+      }
     };
 
     axios.request(config)
