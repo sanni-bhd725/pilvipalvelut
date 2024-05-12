@@ -9,5 +9,5 @@
 - [Viikko 3](viikkoteht/viikko3)
 - [Viikko 4](viikkoteht/viikko4)
 - [Viikko 5](viikkoteht/viikko5)
-- Viikko 6
+- [Viikko 6](viikkoteht/viikko6.md)
 - Harjoitustyö
