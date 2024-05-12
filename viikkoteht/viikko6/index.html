@@ -1,42 +1,26 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-  <!-- Matomo Tag Manager -->
-  <script>
-    var _mtm = window._mtm = window._mtm || [];
-    _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
-    (function() {
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.async=true; g.src='https://pilvipalvelut-matomo.rahtiapp.fi/js/container_hbV8gmAc.js'; s.parentNode.insertBefore(g,s);
-    })();
-  </script>
-  <!-- End Matomo Tag Manager -->
   <meta charset="UTF-8" />
-  <link rel="stylesheet" type="text/css" href="/pilvipalvelut/viikkoteht/styles.css">
-  <title>REST API</title>
+  <title>Matomo API Data</title>
 </head>
 <body>
-  
-  <h2>Dataa viimeisen 30 päivän ajalta</h2>
-  
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script>
-    let config = {
-      method: 'get',
-      maxBodyLength: Infinity,
-      url: 'https://pilvipalvelut-matomo.rahtiapp.fi/index.php?module=API&method=VisitsSummary.get&idSite=19&period=day&date=last30&format=json&token_auth=913021d386d2651bbd7e26d104f3e78c',
-      headers: {
-        'Cookie': 'c0bf7801475050c6d87c4115d5dc1fb1=faf5cc32b8daf7439c43976e87f172ec'
-      }
-    };
+  <h2>Matomo API Data</h2>
+  <div id="matomoData"></div>
 
-    axios.request(config)
-      .then((response) => {
-        console.log(JSON.stringify(response.data));
+  <script>
+    fetch('https://pilvipalvelut-matomo.rahtiapp.fi/index.php?module=API&method=VisitsSummary.get&idSite=19&period=day&date=last30&format=json&token_auth=913021d386d2651bbd7e26d104f3e78c')
+      .then(response => response.json())
+      .then(data => {
+        const matomoDiv = document.getElementById('matomoData');
+        for (const key in data) {
+          const value = data[key];
+          const p = document.createElement('p');
+          p.textContent = `${key}: ${value}`;
+          matomoDiv.appendChild(p);
+        }
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(error => console.error('Error fetching data:', error));
   </script>
 </body>
 </html>
