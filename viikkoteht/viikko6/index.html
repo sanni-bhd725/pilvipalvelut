@@ -2,11 +2,11 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8" />
-  <title>Matomo API Data</title>
+  <title>API Data</title>
 </head>
 <body>
-  <h2>Matomo API Data</h2>
-  <div id="matomoData"></div>
+  <h2>Muun kuin Matomo API datan kutsu</h2>
+  <div id="apiData"></div>
 
   <script>
     var xhr = new XMLHttpRequest();
@@ -14,7 +14,8 @@
     xhr.open("GET", requestUrl, true);
     
     xhr.onload = function(){
-      console.log(xhr.responseText);
+      var apiDataDiv = document.getElementById('apiData');
+      apiDataDiv.textContent = xhr.responseText;
     };
     
     xhr.send();
